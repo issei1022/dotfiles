@@ -43,31 +43,30 @@ imap ( ()<LEFT>
 set nocompatible
 filetype off
 
-" neobundle settings {{{
+" vim-plug settings {{{
  if has('vim_starting')
    set nocompatible
-   " neobundle をインストールしていない場合は自動インストール
-   if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-     echo "install neobundle..."
-     " vim からコマンド呼び出しているだけ neobundle.vim のクローン
-     :call system("git clone  git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+   "Auto install
+   if !isdirectory(expand("~/.vim/plugged/vim-plug"))
+     echo "install vim-plug..."
+     :call system("git clone  git://github.com/junegunn/vim-plug.vim ~/.vim//plugged/vim-plug/autoload")
    endif
-   "必須
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'scrooloose/nerdtree'
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/seou1256.vim'
+Plug 'scrooloose/nerdtree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'scrooloose/syntastic'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tomasr/molokai'
+Plug 'scrooloose/syntastic'
 
-" http://blog.remora.cx/2010/12/vim-ref-with-unite.html
+call plug#end()
+
 
 """""""""""""""""""""""""""""""
 " Unit.vimの設定
@@ -106,10 +105,6 @@ let g:indent_guides_enable_on_vim_startup=1
 "let g:indent_guides_start_level = 2
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size=1
-
-" vimrcに記述されたプラグインでインストールされていないものがないかチェックする
-NeoBundleCheck
-call neobundle#end()
 
 filetype plugin indent on
 colorscheme molokai
