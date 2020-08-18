@@ -19,3 +19,8 @@ if [[ -s ~/.nvm/nvm.sh ]];
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#export PYENV
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="PYENV_ROOT/bin:$PATH"' >> ~/.bash_profil
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile

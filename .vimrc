@@ -64,6 +64,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tomasr/molokai'
 Plug 'scrooloose/syntastic'
+Plug 'johngrib/vim-game-code-break'
 
 call plug#end()
 
